@@ -1,0 +1,96 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.background-images {
+    position: fixed; /* Keep the background fixed */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Create a 5-column layout */
+    grid-auto-rows: 20vh; /* Each row takes up 20% of the viewport height */
+}
+
+.image {
+    background-size: cover;
+    background-position: center;
+    margin: 0; /* Remove margins to eliminate gaps */
+    width: 100%; /* Ensure images take full width */
+    height: 100%; /* Ensure images take full height */
+    opacity: 0.8; /* Set opacity for blending effect */
+    transition: transform 0.5s, opacity 0.5s; /* Smooth transition for effects */
+}
+
+.image:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    opacity: 1; /* Full opacity on hover */
+}
+
+/* Add a filter to create a blending effect */
+.image:nth-child(odd) {
+    filter: brightness(0.9) contrast(1.2); /* Darker and higher contrast for odd images */
+}
+
+.image:nth-child(even) {
+    filter: brightness(1.1) contrast(0.9); /* Lighter and lower contrast for even images */
+}
+
+.container {
+    max-width: 600px;
+    width: 90%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px; /* Optional: Curvy edges for the container */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1; /* Ensure this is above background images */
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    flex: 1;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+    max-height: 300px; /* Limit the height of the result box */
+    overflow-y: auto; /* Add scroll if the content exceeds the height */
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    padding: 10px;
+    border-radius: 4px; /* Optional: Rounded corners for the results */
+}
